@@ -25,7 +25,7 @@ const OPTIONS: { value: OutputFormat; label: string; description: string }[] = [
 export function SectionOutputConfig({ state, onChange }: Props) {
   return (
     <div className="space-y-3">
-      <p className="text-sm font-medium text-zinc-200">Output Format</p>
+      <p className="text-sm font-medium text-zinc-700 dark:text-zinc-200">Output Format</p>
       <RadioGroup
         value={state.output_format}
         onValueChange={(v) => onChange({ output_format: v as OutputFormat })}
@@ -37,7 +37,7 @@ export function SectionOutputConfig({ state, onChange }: Props) {
             className={`flex items-start gap-3 rounded-lg border p-3 cursor-pointer transition-colors ${
               state.output_format === opt.value
                 ? "border-[#A8E63D]/60 bg-[#A8E63D]/5"
-                : "border-zinc-700 hover:border-zinc-600"
+                : "border-zinc-300 dark:border-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-600"
             }`}
             onClick={() => onChange({ output_format: opt.value })}
           >
@@ -47,13 +47,13 @@ export function SectionOutputConfig({ state, onChange }: Props) {
               className="mt-0.5 border-zinc-600 data-[state=checked]:border-[#A8E63D] data-[state=checked]:text-[#A8E63D]"
             />
             <div>
-              <Label
-                htmlFor={opt.value}
-                className="text-zinc-100 font-medium cursor-pointer"
-              >
-                {opt.label}
-              </Label>
-              <p className="text-xs text-zinc-500 mt-0.5">{opt.description}</p>
+            <Label
+              htmlFor={opt.value}
+              className="text-zinc-900 dark:text-zinc-100 font-medium cursor-pointer"
+            >
+              {opt.label}
+            </Label>
+            <p className="text-xs text-zinc-500 mt-0.5">{opt.description}</p>
             </div>
           </div>
         ))}

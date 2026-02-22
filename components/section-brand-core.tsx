@@ -41,7 +41,7 @@ function FieldLabel({
 }) {
   return (
     <div className="flex items-center gap-1.5 mb-1.5">
-      <Label className="text-sm font-medium text-zinc-200">
+      <Label className="text-sm font-medium text-zinc-700 dark:text-zinc-200">
         {label}
         {required && <span className="text-[#A8E63D] ml-0.5">*</span>}
       </Label>
@@ -70,7 +70,7 @@ export function SectionBrandCore({ state, onChange }: Props) {
           value={state.brand_name}
           onChange={(e) => onChange({ brand_name: e.target.value })}
           placeholder="e.g., Acme Protocol"
-          className="bg-zinc-900 border-zinc-700 text-zinc-100 placeholder:text-zinc-600 focus-visible:ring-[#A8E63D]/50 focus-visible:border-[#A8E63D]"
+          className="text-base sm:text-sm bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus-visible:ring-[#A8E63D]/50 focus-visible:border-[#A8E63D]"
         />
       </div>
 
@@ -82,15 +82,15 @@ export function SectionBrandCore({ state, onChange }: Props) {
             onChange({ role_definition: v as RoleDefinition })
           }
         >
-          <SelectTrigger className="bg-zinc-900 border-zinc-700 text-zinc-100 focus:ring-[#A8E63D]/50">
+          <SelectTrigger className="text-base sm:text-sm bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 focus:ring-[#A8E63D]/50">
             <SelectValue />
           </SelectTrigger>
-          <SelectContent className="bg-zinc-900 border-zinc-700">
+          <SelectContent className="bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-700">
             {ROLES.map((r) => (
               <SelectItem
                 key={r}
                 value={r}
-                className="text-zinc-200 focus:bg-zinc-800 focus:text-zinc-100"
+                className="text-zinc-700 dark:text-zinc-200 focus:bg-zinc-100 dark:focus:bg-zinc-800 focus:text-zinc-900 dark:focus:text-zinc-100"
               >
                 {r}
               </SelectItem>
@@ -109,7 +109,7 @@ export function SectionBrandCore({ state, onChange }: Props) {
           onChange={(e) => onChange({ target_audience: e.target.value })}
           placeholder="e.g., DeFi power users, institutional investors, retail crypto enthusiasts"
           rows={3}
-          className="bg-zinc-900 border-zinc-700 text-zinc-100 placeholder:text-zinc-600 focus-visible:ring-[#A8E63D]/50 focus-visible:border-[#A8E63D] resize-none"
+          className="text-base sm:text-sm bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus-visible:ring-[#A8E63D]/50 focus-visible:border-[#A8E63D] resize-none"
         />
       </div>
 
@@ -123,7 +123,7 @@ export function SectionBrandCore({ state, onChange }: Props) {
           onChange={(e) => onChange({ value_proposition: e.target.value })}
           placeholder="e.g., Smart liquidity without the complexity. Security without the friction."
           rows={3}
-          className="bg-zinc-900 border-zinc-700 text-zinc-100 placeholder:text-zinc-600 focus-visible:ring-[#A8E63D]/50 focus-visible:border-[#A8E63D] resize-none"
+          className="text-base sm:text-sm bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus-visible:ring-[#A8E63D]/50 focus-visible:border-[#A8E63D] resize-none"
         />
       </div>
     </div>

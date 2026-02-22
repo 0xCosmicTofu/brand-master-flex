@@ -53,11 +53,12 @@ export function EmailCaptureModal({
             <Input
               id="email"
               type="email"
+              inputMode="email"
+              autoComplete="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@company.com"
-              className="bg-zinc-900 border-zinc-700 text-zinc-100 placeholder:text-zinc-600 focus-visible:ring-[#A8E63D]/50 focus-visible:border-[#A8E63D]"
-              autoFocus
+              className="text-base sm:text-sm bg-zinc-900 border-zinc-700 text-zinc-100 placeholder:text-zinc-600 focus-visible:ring-[#A8E63D]/50 focus-visible:border-[#A8E63D] h-12 sm:h-9"
             />
           </div>
 
@@ -65,14 +66,14 @@ export function EmailCaptureModal({
             <Button
               type="submit"
               disabled={!email.trim()}
-              className="w-full bg-[#A8E63D] text-black font-semibold hover:bg-[#96d630] disabled:opacity-40 disabled:cursor-not-allowed"
+              className="w-full bg-[#A8E63D] text-black font-semibold hover:bg-[#96d630] disabled:opacity-40 disabled:cursor-not-allowed h-12 sm:h-9 text-base sm:text-sm"
             >
               Submit & Export
             </Button>
             <button
               type="button"
               onClick={onSkip}
-              className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors text-center py-1"
+              className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors text-center py-3 sm:py-1"
             >
               Skip & Export
             </button>

@@ -43,15 +43,15 @@ export function SectionVisualPalette({ state, onChange }: Props) {
             onChange({ emotional_target: v as EmotionalTarget })
           }
         >
-          <SelectTrigger className="bg-zinc-900 border-zinc-700 text-zinc-100 focus:ring-[#A8E63D]/50">
+          <SelectTrigger className="text-base sm:text-sm bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 focus:ring-[#A8E63D]/50">
             <SelectValue />
           </SelectTrigger>
-          <SelectContent className="bg-zinc-900 border-zinc-700">
+          <SelectContent className="bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-700">
             {EMOTIONAL_TARGETS.map((t) => (
               <SelectItem
                 key={t}
                 value={t}
-                className="text-zinc-200 focus:bg-zinc-800 focus:text-zinc-100"
+                className="text-zinc-700 dark:text-zinc-200 focus:bg-zinc-100 dark:focus:bg-zinc-800 focus:text-zinc-900 dark:focus:text-zinc-100"
               >
                 {t}
               </SelectItem>
@@ -69,7 +69,7 @@ export function SectionVisualPalette({ state, onChange }: Props) {
           value={state.color_keywords}
           onChange={(e) => onChange({ color_keywords: e.target.value })}
           placeholder="e.g., Electric Yellow, Deep Navy, Matte Red"
-          className="bg-zinc-900 border-zinc-700 text-zinc-100 placeholder:text-zinc-600 focus-visible:ring-[#A8E63D]/50 focus-visible:border-[#A8E63D]"
+          className="text-base sm:text-sm bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus-visible:ring-[#A8E63D]/50 focus-visible:border-[#A8E63D]"
         />
       </div>
 
@@ -79,15 +79,15 @@ export function SectionVisualPalette({ state, onChange }: Props) {
           value={state.visual_style}
           onValueChange={(v) => onChange({ visual_style: v as VisualStyle })}
         >
-          <SelectTrigger className="bg-zinc-900 border-zinc-700 text-zinc-100 focus:ring-[#A8E63D]/50">
+          <SelectTrigger className="text-base sm:text-sm bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 focus:ring-[#A8E63D]/50">
             <SelectValue />
           </SelectTrigger>
-          <SelectContent className="bg-zinc-900 border-zinc-700">
+          <SelectContent className="bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-700">
             {VISUAL_STYLES.map((s) => (
               <SelectItem
                 key={s}
                 value={s}
-                className="text-zinc-200 focus:bg-zinc-800 focus:text-zinc-100"
+                className="text-zinc-700 dark:text-zinc-200 focus:bg-zinc-100 dark:focus:bg-zinc-800 focus:text-zinc-900 dark:focus:text-zinc-100"
               >
                 {s}
               </SelectItem>
