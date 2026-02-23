@@ -115,8 +115,7 @@ export function BrandForm() {
     <>
       <div className="flex flex-col lg:flex-row gap-6 items-start">
         {/* Left: Form — scrolls naturally with the page */}
-        {/* pb-28 on mobile creates space above the sticky copy bar */}
-        <div className={`w-full lg:w-1/2 ${!isEmpty ? "pb-28 lg:pb-6" : ""}`}>
+        <div className={`w-full lg:w-1/2 lg:pb-6 ${!isEmpty ? "pb-28" : ""}`}>
           <Accordion
             type="multiple"
             defaultValue={["brand-core"]}
