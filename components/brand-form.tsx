@@ -116,7 +116,8 @@ export function BrandForm() {
       <div className="flex flex-col lg:flex-row gap-6 items-start">
         {/* Left: Form — scrolls naturally with the page */}
         {/* pb-28 on mobile creates space above the sticky copy bar */}
-        <div className={`w-full lg:w-1/2 ${!isEmpty ? "pb-28 lg:pb-6" : ""}`}>
+        {/* DEBUG: bg-black added temporarily for testing. pb-28 = mobile bottom pad, lg:pb-6 = desktop bottom pad (THE FIX) */}
+        <div className={`w-full lg:w-1/2 bg-black ${!isEmpty ? "pb-28 lg:pb-6" : ""}`}>
           <Accordion
             type="multiple"
             defaultValue={["brand-core"]}
