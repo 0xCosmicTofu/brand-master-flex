@@ -182,6 +182,9 @@ export function BrandForm() {
             </AccordionItem>
           </Accordion>
 
+          {/* DEBUG: visual test spacer for Vercel - uses inline styles to avoid CSS purging */}
+          <div style={{height:"48px",width:"100%",backgroundColor:"red",marginTop:"8px"}} aria-hidden="true" />
+
           {/* Mobile preview toggle (secondary action) */}
           <div className="lg:hidden mt-4">
             <Button
