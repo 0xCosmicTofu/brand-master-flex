@@ -168,7 +168,7 @@ export function BrandForm() {
 
             <AccordionItem
               value="output-config"
-              className="border border-zinc-200 dark:border-zinc-800 rounded-lg bg-white dark:bg-zinc-950"
+              className="border border-zinc-200 dark:border-zinc-800 rounded-lg bg-white dark:bg-zinc-950 last:border-b"
             >
               <AccordionTrigger className="px-4 py-3 text-zinc-900 dark:text-zinc-100 font-semibold hover:no-underline hover:bg-zinc-50 dark:hover:bg-zinc-900 [&[data-state=open]]:bg-zinc-50 dark:[&[data-state=open]]:bg-zinc-900">
                 <span className="flex items-center gap-2">
@@ -181,9 +181,6 @@ export function BrandForm() {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
-
-          {/* DEBUG: visual test spacer for Vercel - uses inline styles to avoid CSS purging */}
-          <div style={{height:"48px",width:"100%",backgroundColor:"red",marginTop:"8px"}} aria-hidden="true" />
 
           {/* Mobile preview toggle (secondary action) */}
           <div className="lg:hidden mt-4">
