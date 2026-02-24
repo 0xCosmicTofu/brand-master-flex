@@ -20,7 +20,7 @@ import { exportToPDF, copyToClipboard } from "@/lib/export-pdf";
 import { DEFAULT_FORM_STATE, FormState } from "@/lib/types";
 import { v4 as uuidv4 } from "uuid";
 import { Button } from "@/components/ui/button";
-import { Copy, Eye, EyeOff } from "lucide-react";
+import { Download, Eye, EyeOff } from "lucide-react";
 import { toast } from "sonner";
 
 type ExportAction = "copy" | "download" | null;
@@ -232,18 +232,18 @@ export function BrandForm() {
         </div>
       </div>
 
-      {/* Sticky mobile copy bar — slides up once form has content */}
+      {/* Sticky mobile export bar — slides up once form has content */}
       <div
         className={`lg:hidden fixed bottom-0 left-0 right-0 z-30 px-4 py-3 bg-[#F1FFE7]/95 dark:bg-[#0a0a0a]/95 backdrop-blur-sm border-t border-[#d4f0b0] dark:border-zinc-800 transition-all duration-300 ${
           isEmpty ? "translate-y-full opacity-0 pointer-events-none" : "translate-y-0 opacity-100"
         }`}
       >
         <Button
-          onClick={() => handleExportTrigger("copy")}
+          onClick={() => handleExportTrigger("download")}
           className="w-full bg-[#A8E63D] text-black font-semibold hover:bg-[#96d630] gap-2 h-12 text-base"
         >
-          <Copy className="h-5 w-5" />
-          Copy Prompt to Clipboard
+          <Download className="h-5 w-5" />
+          Download PDF
         </Button>
       </div>
 
@@ -251,7 +251,6 @@ export function BrandForm() {
       <EmailCaptureModal
         open={modalOpen}
         onSubmit={(email) => executeExport(email)}
-        onSkip={() => executeExport("anonymous")}
       />
     </>
   );

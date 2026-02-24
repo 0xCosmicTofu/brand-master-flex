@@ -15,13 +15,11 @@ import { Label } from "@/components/ui/label";
 interface EmailCaptureModalProps {
   open: boolean;
   onSubmit: (email: string) => void;
-  onSkip: () => void;
 }
 
 export function EmailCaptureModal({
   open,
   onSubmit,
-  onSkip,
 }: EmailCaptureModalProps) {
   const [email, setEmail] = useState("");
 
@@ -62,22 +60,13 @@ export function EmailCaptureModal({
             />
           </div>
 
-          <div className="flex flex-col gap-2">
-            <Button
-              type="submit"
-              disabled={!email.trim()}
-              className="w-full bg-[#A8E63D] text-black font-semibold hover:bg-[#96d630] disabled:opacity-40 disabled:cursor-not-allowed h-12 sm:h-9 text-base sm:text-sm"
-            >
-              Submit & Export
-            </Button>
-            <button
-              type="button"
-              onClick={onSkip}
-              className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors text-center py-3 sm:py-1"
-            >
-              Skip & Export
-            </button>
-          </div>
+          <Button
+            type="submit"
+            disabled={!email.trim()}
+            className="w-full bg-[#A8E63D] text-black font-semibold hover:bg-[#96d630] disabled:opacity-40 disabled:cursor-not-allowed h-12 sm:h-9 text-base sm:text-sm"
+          >
+            Submit & Export
+          </Button>
         </form>
       </DialogContent>
     </Dialog>

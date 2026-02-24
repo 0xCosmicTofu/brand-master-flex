@@ -52,21 +52,21 @@ export function PromptPreview({
 
         <div className="flex-shrink-0 border-t border-zinc-200 dark:border-zinc-800 p-4 flex gap-3">
           <Button
-            onClick={onCopy}
+            onClick={onDownload}
             disabled={isEmpty}
             className="flex-1 bg-[#A8E63D] text-black font-semibold hover:bg-[#96d630] disabled:opacity-40 gap-2"
           >
-            <Copy className="h-4 w-4" />
-            Copy to Clipboard
+            <Download className="h-4 w-4" />
+            Download PDF
           </Button>
           <Button
-            onClick={onDownload}
+            onClick={onCopy}
             disabled={isEmpty}
             variant="outline"
             className="flex-1 border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100 disabled:opacity-40 gap-2"
           >
-            <Download className="h-4 w-4" />
-            Download PDF
+            <Copy className="h-4 w-4" />
+            Copy to Clipboard
           </Button>
         </div>
       </CardContent>
