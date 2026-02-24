@@ -14,7 +14,7 @@ export default function LandingPage() {
               LIME STUDIØ
             </span>
           </div>
-          <nav className="flex items-center gap-4 text-sm text-zinc-500">
+          <nav className="flex items-center gap-4 text-sm text-zinc-500 dark:text-zinc-400">
             <ThemeToggle />
           </nav>
         </div>
@@ -68,7 +68,7 @@ export default function LandingPage() {
                 <Zap className="h-4 w-4 text-zinc-700 dark:text-[#A8E63D]" />
               </div>
               <h3 className="text-zinc-900 dark:text-zinc-100 font-semibold">Instant output</h3>
-              <p className="text-sm text-zinc-500 leading-relaxed">
+              <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
                 Your instructions update live as you type. Copy and paste them
                 straight into ChatGPT, Claude, or any AI tool you use.
               </p>
@@ -78,7 +78,7 @@ export default function LandingPage() {
                 <Shield className="h-4 w-4 text-zinc-700 dark:text-[#A8E63D]" />
               </div>
               <h3 className="text-zinc-900 dark:text-zinc-100 font-semibold">Brand-consistent AI</h3>
-              <p className="text-sm text-zinc-500 leading-relaxed">
+              <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
                 Stop getting generic AI content. Define your voice, your tone,
                 and your visual style once. Use it every time.
               </p>
@@ -88,7 +88,7 @@ export default function LandingPage() {
                 <Copy className="h-4 w-4 text-zinc-700 dark:text-[#A8E63D]" />
               </div>
               <h3 className="text-zinc-900 dark:text-zinc-100 font-semibold">Export anywhere</h3>
-              <p className="text-sm text-zinc-500 leading-relaxed">
+              <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
                 Copy to clipboard or download as a PDF. Paste it into any AI
                 tool, save it to Notion, or share it with your team. Your call.
               </p>
