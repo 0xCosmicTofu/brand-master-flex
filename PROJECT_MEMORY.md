@@ -3,7 +3,7 @@
 ## Overview
 - **Name:** Brand Master Flex (Brand Identity Master Prompt Generator)
 - **Purpose:** Free web tool that converts founder brand inputs into a structured LLM system prompt. Trust signal for Lime Studio. Captures leads via optional email at export.
-- **Status:** App deployed. Export bugs (copy/PDF) fixed. Landing page header cleaned up.
+- **Status:** App deployed. All export bugs fixed. Output Settings removed. PDF rendering confirmed working.
 - **Last Updated:** 2026-02-24
 
 ## Tech Stack
@@ -61,6 +61,8 @@
 ## Decision Log (continued)
 - **2026-02-24:** Switched exportToPDF from DOM-cloning to text-based rendering — ScrollArea cloning produced blank PDFs
 - **2026-02-24:** Used useRef for pendingAction to avoid stale closure in useCallback export handler
+- **2026-02-24:** Removed Output Settings section (system-prompt vs markdown) — no meaningful difference in output
+- **2026-02-24:** Fixed blank PDF by rendering container on-screen inside a hidden wrapper — html2canvas can't capture off-screen elements
 
 ## Known Issues
 - **Active Bugs:** None

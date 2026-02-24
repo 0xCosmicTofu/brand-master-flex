@@ -4,25 +4,35 @@ export async function exportToPDF(
 ) {
   const html2pdf = (await import("html2pdf.js")).default;
 
+  const wrapper = document.createElement("div");
+  Object.assign(wrapper.style, {
+    position: "fixed",
+    top: "0",
+    left: "0",
+    width: "100vw",
+    height: "100vh",
+    overflow: "hidden",
+    zIndex: "99999",
+    backgroundColor: "#ffffff",
+    pointerEvents: "none",
+  });
+
   const container = document.createElement("div");
   Object.assign(container.style, {
-    position: "fixed",
-    top: "-9999px",
-    left: "-9999px",
     width: "170mm",
     backgroundColor: "#ffffff",
     color: "#1a1a1a",
     fontFamily: "'Courier New', Courier, monospace",
     fontSize: "11px",
     lineHeight: "1.7",
-    padding: "0",
+    padding: "20px",
     whiteSpace: "pre-wrap",
     wordBreak: "break-word",
-    zIndex: "-1",
   });
   container.textContent = promptText;
 
-  document.body.appendChild(container);
+  wrapper.appendChild(container);
+  document.body.appendChild(wrapper);
 
   const opt = {
     margin: [16, 20, 16, 20] as [number, number, number, number],
@@ -33,6 +43,8 @@ export async function exportToPDF(
       useCORS: true,
       backgroundColor: "#ffffff",
       logging: false,
+      windowWidth: container.scrollWidth,
+      windowHeight: container.scrollHeight,
     },
     jsPDF: { unit: "mm", format: "a4", orientation: "portrait" as const },
   };
@@ -40,7 +52,7 @@ export async function exportToPDF(
   try {
     await html2pdf().set(opt).from(container).save();
   } finally {
-    document.body.removeChild(container);
+    document.body.removeChild(wrapper);
   }
 }
 

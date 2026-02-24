@@ -10,7 +10,7 @@ import {
 import { SectionBrandCore } from "@/components/section-brand-core";
 import { SectionVoiceTone } from "@/components/section-voice-tone";
 import { SectionVisualPalette } from "@/components/section-visual-palette";
-import { SectionOutputConfig } from "@/components/section-output-config";
+
 import { PromptPreview } from "@/components/prompt-preview";
 import { EmailCaptureModal } from "@/components/email-capture-modal";
 import { generatePrompt } from "@/lib/generate-prompt";
@@ -156,7 +156,7 @@ export function BrandForm() {
 
             <AccordionItem
               value="visual-palette"
-              className="border border-zinc-200 dark:border-zinc-800 rounded-lg bg-white dark:bg-zinc-950"
+              className="border border-zinc-200 dark:border-zinc-800 rounded-lg bg-white dark:bg-zinc-950 last:border-b"
             >
               <AccordionTrigger className="px-4 py-3 text-zinc-900 dark:text-zinc-100 font-semibold hover:no-underline hover:bg-zinc-50 dark:hover:bg-zinc-900 [&[data-state=open]]:bg-zinc-50 dark:[&[data-state=open]]:bg-zinc-900">
                 <span className="flex items-center gap-2">
@@ -166,21 +166,6 @@ export function BrandForm() {
               </AccordionTrigger>
               <AccordionContent className="px-4 pb-5 pt-2">
                 <SectionVisualPalette state={state} onChange={handleChange} />
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem
-              value="output-config"
-              className="border border-zinc-200 dark:border-zinc-800 rounded-lg bg-white dark:bg-zinc-950 last:border-b"
-            >
-              <AccordionTrigger className="px-4 py-3 text-zinc-900 dark:text-zinc-100 font-semibold hover:no-underline hover:bg-zinc-50 dark:hover:bg-zinc-900 [&[data-state=open]]:bg-zinc-50 dark:[&[data-state=open]]:bg-zinc-900">
-                <span className="flex items-center gap-2">
-                  <span className="text-[#A8E63D] text-xs font-mono">04</span>
-                  Output Settings
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="px-4 pb-5 pt-2">
-                <SectionOutputConfig state={state} onChange={handleChange} />
               </AccordionContent>
             </AccordionItem>
           </Accordion>

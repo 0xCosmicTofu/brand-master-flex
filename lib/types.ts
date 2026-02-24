@@ -24,7 +24,6 @@ export type VisualStyle =
   | "Cyberpunk (Dark, Neon accents, High-tech, Gritty)"
   | "Institutional (Blue/Grey, Structured, Conservative)";
 
-export type OutputFormat = "system-prompt" | "markdown";
 
 export const TONE_DO_OPTIONS = [
   "Direct",
@@ -72,8 +71,6 @@ export interface FormState {
   color_keywords: string;
   visual_style: VisualStyle;
 
-  // Section 4: Output Config
-  output_format: OutputFormat;
 }
 
 export const DEFAULT_FORM_STATE: FormState = {
@@ -88,5 +85,4 @@ export const DEFAULT_FORM_STATE: FormState = {
   emotional_target: "Trust & Security",
   color_keywords: "",
   visual_style: "Minimalist (Clean, White space, Sans-serif, Airy)",
-  output_format: "system-prompt",
 };

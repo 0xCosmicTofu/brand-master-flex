@@ -13,7 +13,6 @@ export function generatePrompt(state: FormState): string {
     emotional_target,
     color_keywords,
     visual_style,
-    output_format,
   } = state;
 
   const lines: string[] = [];
@@ -106,11 +105,5 @@ export function generatePrompt(state: FormState): string {
     "4. Maintain consistency across all outputs. Every response should feel like it came from the same voice."
   );
 
-  const prompt = lines.join("\n");
-
-  if (output_format === "markdown") {
-    return `# Brand System Prompt: ${brand_name || "Untitled Brand"}\n\n\`\`\`\n${prompt}\n\`\`\``;
-  }
-
-  return prompt;
+  return lines.join("\n");
 }
