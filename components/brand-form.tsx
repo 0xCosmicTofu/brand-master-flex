@@ -22,6 +22,7 @@ import { v4 as uuidv4 } from "uuid";
 import { Button } from "@/components/ui/button";
 import { Download, Eye, EyeOff } from "lucide-react";
 import { toast } from "sonner";
+import { ArrowUpRight } from "lucide-react";
 
 type ExportAction = "copy" | "download" | null;
 
@@ -33,8 +34,9 @@ export function BrandForm() {
   const [modalOpen, setModalOpen] = useState(false);
   const [pendingAction, setPendingAction] = useState<ExportAction>(null);
   const pendingActionRef = useRef<ExportAction>(null);
-
   const sessionId = useRef<string>(uuidv4());
+  const hasShownCta = useRef(false);
+  const savedEmail = useRef<string | null>(null);
   const debounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleChange = useCallback((patch: Partial<FormState>) => {
@@ -59,15 +61,26 @@ export function BrandForm() {
   const isEmpty = !debouncedState.brand_name && !debouncedState.target_audience;
 
   const handleExportTrigger = (action: ExportAction) => {
-    setPendingAction(action);
     pendingActionRef.current = action;
-    setModalOpen(true);
+    if (savedEmail.current) {
+      executeExport(savedEmail.current);
+    } else {
+      setPendingAction(action);
+      setModalOpen(true);
+    }
   };
+
+  const handleModalClose = useCallback(() => {
+    setModalOpen(false);
+    setPendingAction(null);
+    pendingActionRef.current = null;
+  }, []);
 
   const executeExport = useCallback(
     async (email: string) => {
       const action = pendingActionRef.current;
       setModalOpen(false);
+      if (email.trim()) savedEmail.current = email.trim();
 
       const markdownExport = generateMarkdown({
         email,
@@ -88,7 +101,7 @@ export function BrandForm() {
         try {
           await copyToClipboard(generatedPrompt);
           toast.success("Copied to clipboard", {
-            description: "Your Master Prompt is ready to paste.",
+            description: "Your Brand Instructions are ready to paste.",
           });
         } catch {
           toast.error("Copy failed", {
@@ -97,15 +110,41 @@ export function BrandForm() {
         }
       } else if (action === "download") {
         try {
-          await exportToPDF(generatedPrompt, "brand-master-prompt.pdf");
+          await exportToPDF(generatedPrompt, "brand-instructions.pdf");
           toast.success("PDF downloading", {
-            description: "Your Master Prompt is being exported.",
+            description: "Your Brand Instructions are being exported.",
           });
         } catch {
           toast.error("Export failed", {
             description: "Please try copying instead.",
           });
         }
+      }
+
+      if (!hasShownCta.current) {
+        hasShownCta.current = true;
+        setTimeout(() => {
+          toast.custom(() => (
+            <div className="w-[356px] rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-4 shadow-lg">
+              <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+                Want to go deeper?
+              </p>
+              <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">
+                Our full brand discovery process covers positioning, audience
+                strategy, and competitive analysis.
+              </p>
+              <a
+                href="https://www.limestud.io#booking"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-sm font-medium text-[#A8E63D] hover:text-[#96d630] mt-3 transition-colors"
+              >
+                Book a discovery call
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </a>
+            </div>
+          ), { duration: 10000 });
+        }, 1500);
       }
 
       setPendingAction(null);
@@ -185,7 +224,7 @@ export function BrandForm() {
               ) : (
                 <>
                   <Eye className="h-4 w-4" />
-                  Preview Generated Prompt
+                  Preview Brand Instructions
                 </>
               )}
             </Button>
@@ -236,6 +275,7 @@ export function BrandForm() {
       <EmailCaptureModal
         open={modalOpen}
         onSubmit={(email) => executeExport(email)}
+        onClose={handleModalClose}
       />
     </>
   );

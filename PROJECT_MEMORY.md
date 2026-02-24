@@ -3,7 +3,7 @@
 ## Overview
 - **Name:** Brand Master Flex (Brand Identity Master Prompt Generator)
 - **Purpose:** Free web tool that converts founder brand inputs into a structured LLM system prompt. Trust signal for Lime Studio. Captures leads via optional email at export.
-- **Status:** App deployed. All export bugs fixed. Output Settings removed. PDF rendering confirmed working.
+- **Status:** App deployed. All export bugs fixed. Output Settings removed. PDF rendering confirmed working. Instructions page added.
 - **Last Updated:** 2026-02-24
 
 ## Tech Stack
@@ -21,7 +21,7 @@
 
 ## Architecture
 - **Folder Structure:**
-  - `/app` — Next.js App Router pages (landing, generator, privacy)
+  - `/app` — Next.js App Router pages (landing, generator, privacy, instructions)
   - `/components` — All React UI components
   - `/lib` — Business logic (prompt gen, markdown gen, PDF export, Supabase client, types)
 - **Patterns:** Client-first (form + preview fully client-side, "use client"). Static generation for landing page. Single server interaction: Supabase POST on export.
@@ -63,6 +63,7 @@
 - **2026-02-24:** Used useRef for pendingAction to avoid stale closure in useCallback export handler
 - **2026-02-24:** Removed Output Settings section (system-prompt vs markdown) — no meaningful difference in output
 - **2026-02-24:** Fixed blank PDF by rendering container on-screen inside a hidden wrapper — html2canvas can't capture off-screen elements
+- **2026-02-24:** Added Instructions page with AI agent upload guides; updated all footers with Instructions + Privacy links (lime dark, #1A1B41 light)
 
 ## Known Issues
 - **Active Bugs:** None

@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const metadata = {
-  title: "Privacy Policy — Brand Master Prompt",
+  title: "Privacy Policy — Brand Instructions",
 };
 
 export default function PrivacyPage() {
@@ -16,12 +16,12 @@ export default function PrivacyPage() {
             href="/"
             className="text-[#A8E63D] font-bold text-sm tracking-widest uppercase hover:opacity-80 transition-opacity"
           >
-            Lime Studio
+            LIME STUDIØ
           </Link>
           <div className="flex items-center gap-3">
             <Link href="/generator">
               <Button className="bg-[#A8E63D] text-black font-semibold hover:bg-[#96d630] gap-1.5 h-8 px-4 text-sm cursor-pointer">
-                Build Your Prompt
+                Build Your Instructions
                 <ArrowRight className="h-3.5 w-3.5" />
               </Button>
             </Link>
@@ -47,7 +47,7 @@ export default function PrivacyPage() {
                 What we collect
               </h2>
               <p>
-                When you use the Brand Master Prompt Generator, we collect:
+                When you use the Brand Instructions Generator, we collect:
               </p>
               <ul className="list-disc list-inside space-y-1 ml-2">
                 <li>
@@ -76,7 +76,7 @@ export default function PrivacyPage() {
                 </li>
                 <li>
                   Form data helps us understand how founders think about brand,
-                  which informs our work at Lime Studio.
+                  which informs our work at LIME STUDIØ.
                 </li>
               </ul>
             </section>
@@ -123,16 +123,32 @@ export default function PrivacyPage() {
       </main>
 
       <footer className="border-t border-[#d4f0b0] dark:border-zinc-900 px-6 py-5">
-        <div className="max-w-6xl mx-auto text-sm text-zinc-400 dark:text-zinc-600">
-          Built by{" "}
-          <a
-            href="https://limestud.io"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors"
-          >
-            Lime Studio
-          </a>
+        <div className="max-w-6xl mx-auto flex items-center justify-between text-sm text-zinc-400 dark:text-zinc-600">
+          <span>
+            Built by{" "}
+            <a
+              href="https://limestud.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors"
+            >
+              LIME STUDIØ
+            </a>
+          </span>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/instructions"
+              className="text-[#1A1B41] dark:text-[#A8E63D] hover:opacity-70 transition-opacity"
+            >
+              Instructions
+            </Link>
+            <Link
+              href="/privacy"
+              className="text-[#1A1B41] dark:text-[#A8E63D] hover:opacity-70 transition-opacity"
+            >
+              Privacy Policy
+            </Link>
+          </div>
         </div>
       </footer>
     </div>

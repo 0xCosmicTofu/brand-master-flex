@@ -24,7 +24,7 @@ export function PromptPreview({
         <div className="flex items-center gap-2">
           <FileText className="h-4 w-4 text-[#A8E63D]" />
           <CardTitle className="text-sm font-semibold text-zinc-700 dark:text-zinc-200 tracking-wide uppercase">
-            Generated Master Prompt
+            Generated Brand Instructions
           </CardTitle>
         </div>
       </CardHeader>
@@ -37,7 +37,7 @@ export function PromptPreview({
                 <FileText className="h-4 w-4 text-zinc-400 dark:text-zinc-600" />
               </div>
               <p className="text-zinc-400 dark:text-zinc-600 text-sm">
-                Start filling in the form to see your prompt appear here.
+                Start filling in the form to see your instructions appear here.
               </p>
             </div>
           ) : (

@@ -5,14 +5,14 @@ import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
-  title: "Brand Master Prompt Generator — Lime Studio",
+  title: "Brand Instructions Generator — LIME STUDIØ",
   description:
-    "Generate a structured AI system prompt that encodes your brand identity. Free, no signup required. Built by Lime Studio.",
+    "Create a set of instructions that teaches your AI how to write and design like your brand. Free, no signup required. Built by LIME STUDIØ.",
   openGraph: {
-    title: "Brand Master Prompt Generator",
+    title: "Brand Instructions Generator",
     description:
-      "Your AI doesn't know your brand. Fix that in 5 minutes. Free tool by Lime Studio.",
-    siteName: "Lime Studio",
+      "Your AI doesn't know your brand. Fix that in 5 minutes. Free tool by LIME STUDIØ.",
+    siteName: "LIME STUDIØ",
   },
 };
 

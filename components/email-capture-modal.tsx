@@ -15,11 +15,13 @@ import { Label } from "@/components/ui/label";
 interface EmailCaptureModalProps {
   open: boolean;
   onSubmit: (email: string) => void;
+  onClose: () => void;
 }
 
 export function EmailCaptureModal({
   open,
   onSubmit,
+  onClose,
 }: EmailCaptureModalProps) {
   const [email, setEmail] = useState("");
 
@@ -31,7 +33,7 @@ export function EmailCaptureModal({
   };
 
   return (
-    <Dialog open={open}>
+    <Dialog open={open} onOpenChange={(isOpen) => { if (!isOpen) onClose(); }}>
       <DialogContent className="bg-zinc-950 border-zinc-800 text-zinc-100 sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="text-xl font-semibold text-zinc-100">
@@ -39,7 +41,7 @@ export function EmailCaptureModal({
           </DialogTitle>
           <DialogDescription className="text-zinc-400 text-sm leading-relaxed mt-1">
             Drop your email and we will send you updates to the framework and
-            tips on getting the most out of your Master Prompt.
+            tips on getting the most out of your Brand Instructions.
           </DialogDescription>
         </DialogHeader>
 

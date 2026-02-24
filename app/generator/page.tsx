@@ -3,7 +3,7 @@ import { BrandForm } from "@/components/brand-form";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export const metadata = {
-  title: "Generator — Brand Master Prompt",
+  title: "Generator — Brand Instructions",
 };
 
 export default function GeneratorPage() {
@@ -14,12 +14,12 @@ export default function GeneratorPage() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group">
             <span className="text-[#A8E63D] font-bold text-sm tracking-widest uppercase group-hover:opacity-80 transition-opacity">
-              Lime Studio
+              LIME STUDIØ
             </span>
           </Link>
           <div className="flex items-center gap-3">
             <div className="text-xs text-zinc-400 dark:text-zinc-600 hidden sm:block">
-              Brand Master Prompt Generator
+              Brand Instructions Generator
             </div>
             <ThemeToggle />
           </div>
@@ -31,11 +31,11 @@ export default function GeneratorPage() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-6">
             <h1 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-              Build your Master Prompt
+              Build your Brand Instructions
             </h1>
             <p className="text-sm text-zinc-500 mt-1">
-              Fill in the sections below. Your prompt generates in real-time on
-              the right.
+              Fill in the sections below. Your instructions generate in
+              real-time on the right.
             </p>
           </div>
 
@@ -54,12 +54,23 @@ export default function GeneratorPage() {
               rel="noopener noreferrer"
               className="hover:text-zinc-600 dark:hover:text-zinc-500 transition-colors"
             >
-              Lime Studio
+              LIME STUDIØ
             </a>
           </span>
-          <Link href="/privacy" className="hover:text-zinc-600 dark:hover:text-zinc-500 transition-colors">
-            Privacy Policy
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/instructions"
+              className="text-[#1A1B41] dark:text-[#A8E63D] hover:opacity-70 transition-opacity"
+            >
+              Instructions
+            </Link>
+            <Link
+              href="/privacy"
+              className="text-[#1A1B41] dark:text-[#A8E63D] hover:opacity-70 transition-opacity"
+            >
+              Privacy Policy
+            </Link>
+          </div>
         </div>
       </footer>
     </div>

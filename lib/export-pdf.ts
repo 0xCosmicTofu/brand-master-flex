@@ -12,8 +12,8 @@ export async function exportToPDF(
     width: "100vw",
     height: "100vh",
     overflow: "hidden",
-    zIndex: "99999",
-    backgroundColor: "#ffffff",
+    zIndex: "-1",
+    opacity: "0",
     pointerEvents: "none",
   });
 

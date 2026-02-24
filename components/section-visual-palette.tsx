@@ -63,7 +63,7 @@ export function SectionVisualPalette({ state, onChange }: Props) {
       <div>
         <FieldLabel
           label="Color Keywords"
-          tooltip="Descriptive color terms for image generation prompts. Not hex codes. Think adjectives."
+          tooltip="Descriptive color terms for AI image generation. Not hex codes. Think adjectives."
         />
         <Input
           value={state.color_keywords}

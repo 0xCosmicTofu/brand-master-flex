@@ -11,7 +11,7 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-[#A8E63D] font-bold text-sm tracking-widest uppercase">
-              Lime Studio
+              LIME STUDIØ
             </span>
           </div>
           <nav className="flex items-center gap-4 text-sm text-zinc-500">
@@ -26,7 +26,7 @@ export default function LandingPage() {
           <div className="max-w-3xl mx-auto space-y-8">
             <div className="inline-flex items-center gap-2 bg-[#A8E63D]/10 border border-[#A8E63D]/20 rounded-full px-4 py-1.5 text-xs font-medium text-zinc-900 dark:text-[#A8E63D] mb-2">
               <Zap className="h-3 w-3" />
-              Free. No account. Email optional on export.
+              Free. No account needed.
             </div>
 
             <h1 className="text-5xl sm:text-6xl font-bold text-zinc-900 dark:text-zinc-100 leading-tight tracking-tight">
@@ -38,22 +38,22 @@ export default function LandingPage() {
 
             <p className="text-lg text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
               Not everyone is ready for a full brand sprint. We get it. This
-              tool gives you a free, structured system prompt that encodes your
-              brand identity into any AI agent. Consistent tone. Consistent
+              tool creates a set of instructions that teaches your AI how to
+              write and design like your brand. Consistent tone. Consistent
               visuals. No guesswork.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/generator">
                 <Button className="bg-[#A8E63D] text-black font-semibold hover:bg-[#96d630] px-8 py-6 text-base gap-2 rounded-lg cursor-pointer">
-                  Start Building Your Prompt
+                  Start Building Your Instructions
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
             </div>
 
             <p className="text-sm text-zinc-400 dark:text-zinc-600 max-w-xl mx-auto">
-              We built this using the same framework we use at Lime Studio when
+              We built this using the same framework we use at LIME STUDIØ when
               designing brand systems for Web3 and AI companies. Consider it a
               head start.
             </p>
@@ -69,18 +69,18 @@ export default function LandingPage() {
               </div>
               <h3 className="text-zinc-900 dark:text-zinc-100 font-semibold">Instant output</h3>
               <p className="text-sm text-zinc-500 leading-relaxed">
-                Your prompt updates live as you type. Copy and paste straight
-                into Claude, GPT-4, or any LLM.
+                Your instructions update live as you type. Copy and paste them
+                straight into ChatGPT, Claude, or any AI tool you use.
               </p>
             </div>
             <div className="flex flex-col gap-3">
               <div className="w-8 h-8 rounded-lg bg-zinc-900/8 dark:bg-[#A8E63D]/10 flex items-center justify-center">
                 <Shield className="h-4 w-4 text-zinc-700 dark:text-[#A8E63D]" />
               </div>
-              <h3 className="text-zinc-900 dark:text-zinc-100 font-semibold">Brand-safe AI</h3>
+              <h3 className="text-zinc-900 dark:text-zinc-100 font-semibold">Brand-consistent AI</h3>
               <p className="text-sm text-zinc-500 leading-relaxed">
-                Stop getting generic AI content. Define your voice, tone, and
-                visual identity once. Enforce it everywhere.
+                Stop getting generic AI content. Define your voice, your tone,
+                and your visual style once. Use it every time.
               </p>
             </div>
             <div className="flex flex-col gap-3">
@@ -89,8 +89,8 @@ export default function LandingPage() {
               </div>
               <h3 className="text-zinc-900 dark:text-zinc-100 font-semibold">Export anywhere</h3>
               <p className="text-sm text-zinc-500 leading-relaxed">
-                Copy to clipboard or download as PDF. Works as a system prompt
-                or a Notion doc. Your call.
+                Copy to clipboard or download as a PDF. Paste it into any AI
+                tool, save it to Notion, or share it with your team. Your call.
               </p>
             </div>
           </div>
@@ -108,15 +108,23 @@ export default function LandingPage() {
               rel="noopener noreferrer"
               className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors"
             >
-              Lime Studio
+              LIME STUDIØ
             </a>
           </span>
-          <Link
-            href="/privacy"
-            className="hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors"
-          >
-            Privacy Policy
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/instructions"
+              className="text-[#1A1B41] dark:text-[#A8E63D] hover:opacity-70 transition-opacity"
+            >
+              Instructions
+            </Link>
+            <Link
+              href="/privacy"
+              className="text-[#1A1B41] dark:text-[#A8E63D] hover:opacity-70 transition-opacity"
+            >
+              Privacy Policy
+            </Link>
+          </div>
         </div>
       </footer>
     </div>
