@@ -1,17 +1,11 @@
 export async function exportToPDF(
-  sourceElementId: string,
+  promptText: string,
   filename: string = "brand-master-prompt.pdf"
 ) {
   const html2pdf = (await import("html2pdf.js")).default;
 
-  const source = document.getElementById(sourceElementId);
-  if (!source) return;
-
-  // Clone the element so we can style it for print without affecting the UI
-  const clone = source.cloneNode(true) as HTMLElement;
-
-  // Apply print-friendly styles
-  Object.assign(clone.style, {
+  const container = document.createElement("div");
+  Object.assign(container.style, {
     position: "fixed",
     top: "-9999px",
     left: "-9999px",
@@ -26,8 +20,9 @@ export async function exportToPDF(
     wordBreak: "break-word",
     zIndex: "-1",
   });
+  container.textContent = promptText;
 
-  document.body.appendChild(clone);
+  document.body.appendChild(container);
 
   const opt = {
     margin: [16, 20, 16, 20] as [number, number, number, number],
@@ -43,9 +38,9 @@ export async function exportToPDF(
   };
 
   try {
-    await html2pdf().set(opt).from(clone).save();
+    await html2pdf().set(opt).from(container).save();
   } finally {
-    document.body.removeChild(clone);
+    document.body.removeChild(container);
   }
 }
 

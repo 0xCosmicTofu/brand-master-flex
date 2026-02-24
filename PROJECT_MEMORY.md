@@ -3,8 +3,8 @@
 ## Overview
 - **Name:** Brand Master Flex (Brand Identity Master Prompt Generator)
 - **Purpose:** Free web tool that converts founder brand inputs into a structured LLM system prompt. Trust signal for Lime Studio. Captures leads via optional email at export.
-- **Status:** Project initialized. Scaffolding in progress.
-- **Last Updated:** 2026-02-22
+- **Status:** App deployed. Export bugs (copy/PDF) fixed. Landing page header cleaned up.
+- **Last Updated:** 2026-02-24
 
 ## Tech Stack
 - **Languages:** TypeScript
@@ -58,8 +58,12 @@
 - **2026-02-22:** "Skip & Export" option on email modal is non-negotiable — forcing email kills trust signal
 - **2026-02-22:** All form/preview logic is client-side only; Supabase POST is the only network call
 
+## Decision Log (continued)
+- **2026-02-24:** Switched exportToPDF from DOM-cloning to text-based rendering — ScrollArea cloning produced blank PDFs
+- **2026-02-24:** Used useRef for pendingAction to avoid stale closure in useCallback export handler
+
 ## Known Issues
-- **Active Bugs:** None yet
+- **Active Bugs:** None
 - **Technical Debt:** None yet
 
 ## Environment Variables

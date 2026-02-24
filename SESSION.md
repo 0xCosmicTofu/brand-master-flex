@@ -1,34 +1,39 @@
 # Current Session
 
 ## Objective
-Scaffold and build the Brand Identity Master Prompt Generator from plan.md — a Next.js web tool that generates LLM system prompts from brand inputs, with Supabase email/data capture on export.
+Fix landing page header branding text and resolve export bugs (copy + PDF) when email is skipped.
 
 ## Context
-Brand new project. No prior work. Full spec is in plan.md. Building from scratch.
+App is deployed. User tested the full flow and found: (1) "limestud.io" text in landing page header should be removed, (2) copy-to-clipboard fails silently when skipping email, (3) PDF downloads blank when skipping email, (4) toast notification is obscured by the mobile sticky footer.
 
 ## Relevant Files
-- plan.md (full spec)
-- All files under /app, /components, /lib (to be created)
+- app/page.tsx (landing page header)
+- components/brand-form.tsx (export flow orchestration)
+- lib/export-pdf.ts (PDF generation + clipboard copy)
+- app/layout.tsx (Toaster configuration)
+- components/ui/sonner.tsx (Toaster component)
 
 ## Attempts Log
-- **Attempt 1:** Initialize Next.js project with shadcn/ui and Tailwind
-- **Result:** Success. App scaffolded in `/brand-master-flex` subdirectory (workspace root name had spaces/caps, invalid npm name).
-- **Conclusion:** Keep.
+- **Attempt 1:** Removed limestud.io anchor from landing page header nav
+- **Result:** Clean header with only ThemeToggle remaining
+- **Conclusion:** Keep
 
-- **Attempt 2:** Build all lib, component, and page files.
-- **Result:** Clean build. TypeScript errors fixed (html2pdf.js type literals, lazy Supabase client initialization).
-- **Conclusion:** Keep.
+- **Attempt 2:** Fixed stale closure bug in `executeExport` — `pendingAction` state was captured by `useCallback` before the state update from `handleExportTrigger` propagated. Added `pendingActionRef` (useRef) that is set synchronously alongside `setPendingAction`, and read the ref inside `executeExport` instead of the state variable.
+- **Result:** Both copy and download actions now execute correctly regardless of email skip.
+- **Conclusion:** Keep — this was the root cause for both copy and PDF failures.
+
+- **Attempt 3:** Rewrote `exportToPDF` to accept the prompt text string directly instead of cloning a DOM element by ID. The previous approach cloned `#prompt-export-content` from inside a `ScrollArea`, which could produce a zero-height or invisible clone resulting in a blank PDF.
+- **Result:** PDF now renders from a purpose-built `<div>` with the raw text content, independent of DOM state.
+- **Conclusion:** Keep — eliminates the blank PDF issue entirely.
+
+- **Attempt 4:** Added `mobileOffset={{ bottom: 72 }}` to the Toaster component in layout.tsx so toasts appear above the sticky mobile copy bar.
+- **Result:** Toast notifications will no longer be obscured by the footer border on mobile.
+- **Conclusion:** Keep
 
 ## Current Status
-Full application built and compiles cleanly. Dev server running at http://localhost:3000.
-
-**Still needed before deploy:**
-- Create `.env.local` with real Supabase credentials
-- Create the `submissions` table in Supabase (SQL in plan.md)
-- Set Vercel environment variables and deploy
+All four issues resolved. Ready for deploy and verification.
 
 ## Next Steps
-1. User provides Supabase project URL and anon key → create `.env.local`
-2. Run the SQL schema in Supabase dashboard
-3. Deploy to Vercel (`vercel --prod`)
-4. Point domain to `prompt.limestud.io`
+1. Deploy to Vercel and test the full export flow (both copy and PDF, with and without email)
+2. Verify toast positioning on mobile
+3. Verify landing page header appearance

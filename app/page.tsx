@@ -15,14 +15,6 @@ export default function LandingPage() {
             </span>
           </div>
           <nav className="flex items-center gap-4 text-sm text-zinc-500">
-            <a
-              href="https://limestud.io"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:block hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
-            >
-              limestud.io
-            </a>
             <ThemeToggle />
           </nav>
         </div>

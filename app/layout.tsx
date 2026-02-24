@@ -27,7 +27,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <TooltipProvider>
             {children}
-            <Toaster position="bottom-right" />
+            <Toaster position="bottom-right" mobileOffset={{ bottom: 72 }} />
           </TooltipProvider>
         </ThemeProvider>
       </body>

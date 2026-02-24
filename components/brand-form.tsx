@@ -30,9 +30,9 @@ export function BrandForm() {
   const [debouncedState, setDebouncedState] = useState<FormState>(DEFAULT_FORM_STATE);
   const [showMobilePreview, setShowMobilePreview] = useState(false);
 
-  // Export modal state — lifted here so the sticky mobile bar can trigger it
   const [modalOpen, setModalOpen] = useState(false);
   const [pendingAction, setPendingAction] = useState<ExportAction>(null);
+  const pendingActionRef = useRef<ExportAction>(null);
 
   const sessionId = useRef<string>(uuidv4());
   const debounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -60,11 +60,13 @@ export function BrandForm() {
 
   const handleExportTrigger = (action: ExportAction) => {
     setPendingAction(action);
+    pendingActionRef.current = action;
     setModalOpen(true);
   };
 
   const executeExport = useCallback(
     async (email: string) => {
+      const action = pendingActionRef.current;
       setModalOpen(false);
 
       const markdownExport = generateMarkdown({
@@ -82,7 +84,7 @@ export function BrandForm() {
         markdown_export: markdownExport,
       });
 
-      if (pendingAction === "copy") {
+      if (action === "copy") {
         try {
           await copyToClipboard(generatedPrompt);
           toast.success("Copied to clipboard", {
@@ -93,9 +95,9 @@ export function BrandForm() {
             description: "Please copy the text manually.",
           });
         }
-      } else if (pendingAction === "download") {
+      } else if (action === "download") {
         try {
-          await exportToPDF("prompt-export-content", "brand-master-prompt.pdf");
+          await exportToPDF(generatedPrompt, "brand-master-prompt.pdf");
           toast.success("PDF downloading", {
             description: "Your Master Prompt is being exported.",
           });
@@ -107,8 +109,9 @@ export function BrandForm() {
       }
 
       setPendingAction(null);
+      pendingActionRef.current = null;
     },
-    [pendingAction, generatedPrompt, debouncedState]
+    [generatedPrompt, debouncedState]
   );
 
   return (
