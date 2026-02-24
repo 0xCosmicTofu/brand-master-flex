@@ -36,7 +36,7 @@ export default function PrivacyPage() {
             <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-2">
               Privacy Policy
             </h1>
-            <p className="text-sm text-zinc-500 dark:text-zinc-600">
+            <p className="text-sm text-zinc-600 dark:text-zinc-400">
               Last updated: February 2026
             </p>
           </div>
@@ -123,14 +123,14 @@ export default function PrivacyPage() {
       </main>
 
       <footer className="border-t border-[#d4f0b0] dark:border-zinc-900 px-6 py-5">
-        <div className="max-w-6xl mx-auto flex items-center justify-between text-sm text-zinc-400 dark:text-zinc-600">
+        <div className="max-w-6xl mx-auto flex items-center justify-between text-sm text-zinc-500 dark:text-zinc-400">
           <span>
             Built by{" "}
             <a
               href="https://limestud.io"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors"
+              className="text-zinc-600 dark:text-zinc-300 hover:text-zinc-800 dark:hover:text-zinc-100 transition-colors"
             >
               LIME STUDIØ
             </a>

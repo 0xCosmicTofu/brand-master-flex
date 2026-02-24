@@ -52,7 +52,7 @@ export default function LandingPage() {
               </Link>
             </div>
 
-            <p className="text-sm text-zinc-400 dark:text-zinc-600 max-w-xl mx-auto">
+            <p className="text-sm text-zinc-500 dark:text-zinc-400 max-w-xl mx-auto">
               We built this using the same framework we use at LIME STUDIØ when
               designing brand systems for Web3 and AI companies. Consider it a
               head start.
@@ -99,14 +99,14 @@ export default function LandingPage() {
 
       {/* Footer */}
       <footer className="border-t border-[#d4f0b0] dark:border-zinc-900 px-6 py-5">
-        <div className="max-w-6xl mx-auto flex items-center justify-between text-sm text-zinc-400 dark:text-zinc-600">
+        <div className="max-w-6xl mx-auto flex items-center justify-between text-sm text-zinc-500 dark:text-zinc-400">
           <span>
             Built by{" "}
             <a
               href="https://limestud.io"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors"
+              className="text-zinc-600 dark:text-zinc-300 hover:text-zinc-800 dark:hover:text-zinc-100 transition-colors"
             >
               LIME STUDIØ
             </a>
